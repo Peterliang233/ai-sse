@@ -1,7 +1,7 @@
 **<a href="./README-CN.md">中文版本</a>**
 ---
 
-# AI SSE Chat System (English)
+# AI SSE Chat System
 
 This is a full-stack AI chat demo project based on Server-Sent Events (SSE). Backend uses Spring Boot + MySQL, frontend uses React. Features include multi-session, message persistence, AI streaming reply, and a modern, responsive UI.
 
