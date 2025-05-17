@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8080/api';
@@ -365,10 +365,16 @@ function ChatBox({ conversation, connected, onSendMessage }) {
     };
   }, [connected, conversation?.id]);
   
-  // 自动滚动到最新消息
-  useEffect(() => {
+  // 自动滚动到最新消息（多次setTimeout兜底，确保DOM已更新）
+  useLayoutEffect(() => {
     if (messageListRef.current) {
-      messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          if (messageListRef.current) {
+            messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+          }
+        }, i * 50);
+      }
     }
   }, [messages]);
 
