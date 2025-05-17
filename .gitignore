@@ -1,0 +1,11 @@
+/node_modules
+/dist
+/build
+/test
+/docs
+/examples
+/scripts
+/logs
+/.vscode
+/frontend/node_modules
+/target/*
